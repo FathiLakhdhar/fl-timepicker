@@ -5,4 +5,8 @@ var options={
   startEvery: "00:05"
 }
 
-timepicker = new Timepicker('timepicker', options);
+var timepicker = new Timepicker('timepicker', options);
+
+timepicker.addEventListener('clickTime', function(e){
+  console.log(e.time);
+}, true)
