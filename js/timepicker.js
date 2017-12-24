@@ -64,9 +64,19 @@
       var sm = parseInt(s[2]);
       var smode = s[3].toLowerCase();
 
+      var se = regExTime(startEvery);
+      var seh = parseInt(se[1]);
+      var sem = parseInt(se[2]);
+
       var d = regExTime(duration);
       var dh = parseInt(d[1]);
       var dm = parseInt(d[2]);
+
+
+
+      console.log(sem)
+
+
       console.log(d)
       var xh = sh;
       var xm = sm;
@@ -75,11 +85,11 @@
       timeDOMS[0].hoursDOM.innerText = ((xh<10)?('0'+xh):xh) +':' + ((xm<10)?('0'+xm):xm);
       timeDOMS[0].modeTimeDOM.innerText = xmode;
       for (var i = 1; i < max; i++) {
-        if( (xm+dm)<60 ){
-          xm+=dm;
+        if( (xm+dm+sem)<60 ){
+          xm+=dm+sem;
         }
         else{
-          xm = (xm+dm)-60;
+          xm = (xm+dm+sem)-60;
           xh++;
           if(xmode == "am"){
             if(xh==12)xmode="pm";
